@@ -1,6 +1,6 @@
 Para usar basta copiar a pasta lojavirtual para a para web root do seu servidor. (Aplicação 1 servidor).
 
-Para realizar a busca (METHOD GET) deve-se utilizar por exemplo: http://localhost/lojavirtual/pessoas/pessoa para uma busca para todos os registros
+Para realizar a busca (METHOD GET) deve-se utilizar por exemplo: http://localhost/lojavirtual/pessoas/pessoa para uma busca por todos os registros
 ou http://localhost/lojavirtual/pessoas/pessoa/1 para buscar por id e ainda http://localhost/lojavirtual/pessoas/pessoa/pedro para buscar por nome.
 
 Para inserir (METHOD POST) basta usar http://localhost/lojavirtual/'nome tabela no plural'/'nome tabela singular'
