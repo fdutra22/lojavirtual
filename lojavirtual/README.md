@@ -8,4 +8,4 @@ Obs: deve ser enviado como post os nomes da coluna e os valores eu utilizei o pl
 Para deletetar basta usar por exemplo: http://localhost/lojavirtual/pessoas/pessoa/1 onde é usado o id 1 para remover o registro do banco de dados
 
 e para atualizar usar por exemplo http://localhost/lojavirtual/pessoas/pessoa e utilizar o metodo put 
-obs: essa parte contem alguns bugs.
+obs: essa parte deve ser utilizado o cabeçario do tipo x-www-form-urlencoded
