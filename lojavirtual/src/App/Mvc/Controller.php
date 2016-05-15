@@ -7,28 +7,35 @@
 		
 		public function index($url, $method, $post, $get, $put)
 		{
-				if ($method == 'POST') {
+			$tabela = explode("/", $url);
+			
+			if ( sizeof($tabela) > 3 ){
+				if ($method == 'POST') { //metodo post
 					$model = new Model;
 					$model->insert($url, $post);
 					
-				} elseif ($method == 'GET') {
+				} elseif ($method == 'GET') { //metodo get
 					
 					$model = new Model;
-					$model->select($url, $get);
-					$view = new View;
-					//$view->render($model->select());
+					$model->select($url, $get);				
 					http_response_code(200);
 					
-				} elseif ($method == 'PUT') {
+				} elseif ($method == 'PUT') { //metodo put
 					$model = new Model;
 					$model->update($url, $put);
 					
-				} elseif ($method == 'DELETE') {
+				} elseif ($method == 'DELETE') { //metodo delete
 					$model = new Model;
 					$model->delete($url);
 				} else {
-					// Method unknown
+					// algum outro tipo de metodo
 				}
+			} else {
+				$view = new View;
+				
+					echo $view->renderCadastroProdutos();
+					
+			}
 			
 			
 		}

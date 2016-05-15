@@ -2,8 +2,15 @@
    namespace App\Mvc;
    class View
    {
-      public function render($str)
+      public function renderLogin()
       {
-         echo $str;
+		 include "pages/indexold.php";
+		        
+      }
+	  
+	  public function renderCadastroProdutos()
+      {
+		 include "pages/cadastroProdutos.php";
+		        
       }
    }

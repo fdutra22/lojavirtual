@@ -1,14 +1,18 @@
-Para usar basta copiar a pasta lojavirtual para a para web root do seu servidor. (Aplicação 1 servidor).
+# Slim Framework 3 Skeleton Application
 
-Para realizar a busca (METHOD GET) deve-se utilizar por exemplo: http://localhost/lojavirtual/pessoas/pessoa para uma busca por todos os registros
-ou http://localhost/lojavirtual/pessoas/pessoa/1 para buscar por id e ainda http://localhost/lojavirtual/pessoas/pessoa/pedro para buscar por nome.
+Use this skeleton application to quickly setup and start working on a new Slim Framework 3 application. This application uses the latest Slim 3 with the PHP-View template renderer. It also uses the Monolog logger.
 
-Para inserir (METHOD POST) basta usar http://localhost/lojavirtual/'nome tabela no plural'/'nome tabela singular'
-Obs: deve ser enviado como post os nomes da coluna e os valores, eu utilizei o plugin do google chrome Postman para testar em uma tabela qualquer inclusive a que eu utilizei para desenvolver esse servidor restfull.
+This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
 
-Para deletetar (METHOD DELETE) basta usar por exemplo: http://localhost/lojavirtual/pessoas/pessoa/1 onde é usado o id 1 para remover o registro do banco de dados.
+## Install the Application
 
-E para atualizar (METHOD PUT) usar por exemplo http://localhost/lojavirtual/pessoas/pessoa e utilizar o metodo put 
-obs: essa parte deve ser utilizado o cabeçalho do tipo x-www-form-urlencoded.
+Run this command from the directory in which you want to install your new Slim Framework application.
 
-(Aplicação 2 cliente) em desenvolvimento.
+    php composer.phar create-project slim/slim-skeleton [my-app-name]
+
+Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
+
+* Point your virtual host document root to your new application's `public/` directory.
+* Ensure `logs/` is web writeable.
+
+That's it! Now go build something cool.

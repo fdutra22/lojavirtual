@@ -1,18 +1,26 @@
 <?php
 	namespace App\Mvc;
 	
-   
-   
+ 
    class Model
    {
+	   
 	  
+	    
       public function select($url, $get)  //função para retornar os dados 
       {
 		  require '/dbconfig.php'; 	//arquivo de configuração do banco de dados usando PDO
 			$tabela = explode("/", $url); //explode para pegar os parametros da url $tabela[3] = pessoa por exemplo
 			if ( sizeof($tabela) > 4 ){
 				if (is_numeric($tabela[4])) {  //if de select para buscar por id ou por nome
-				 $sql = "select * from $tabela[3] where id_$tabela[3] = :id_$tabela[3]";
+				
+				$stmt = $conn->prepare("SHOW COLUMNS FROM $tabela[3]");
+                $stmt->execute();
+			
+                while($e = $stmt->fetch()){
+                 $colunas[] = $e['Field']; //pega os nomes da colunas
+				}
+				 $sql = "select * from $tabela[3] where $colunas[0] = :id_$tabela[3]";
 				 $param = "id_$tabela[3]";
 			
 				} else {
@@ -27,7 +35,7 @@
 			$sql = "select * from $tabela[3]";
 			$stmt = $conn->prepare($sql); 
 			$stmt->execute();
-			$users = $stmt->fetchObject();
+			$users = $stmt->fetchAll();
 			}
 		   	
             
@@ -53,7 +61,6 @@
 	            $sql = "INSERT INTO $tabela[3] ($customColumns) VALUES ($customValues)";
 			
 			try {
-
 			$stmt = $conn->prepare($sql); 
 				foreach( $post AS $k => $v ) {
 				  $bindParam[] = $v; //pega os valores para bindParam
@@ -72,8 +79,13 @@
 	  { 
 		   require '/dbconfig.php';  //arquivo de configuração do banco de dados usando PDO
 		   	   	$tabela = explode("/", $url); //explode para pegar os parametros da url $tabela[3] = pessoa por exemplo
-					
-	            $sql = "DELETE FROM `testephp`.$tabela[3] WHERE id_pessoa = :id_pessoa";
+				$stmt = $conn->prepare("SHOW COLUMNS FROM $tabela[3]");
+                $stmt->execute();
+			
+                while($e = $stmt->fetch()){
+                 $colunas[] = $e['Field']; //pega os nomes da colunas
+				}
+	            $sql = "DELETE FROM $tabela[3] WHERE $colunas[0] = :id_pessoa";
 
 			try {
 
@@ -96,7 +108,14 @@
 			  $columns[] = $k;  //pega os nomes das columas
 			}
 			$customSets = implode($columns, '=?,').'=?'; //constroi o set
-			 $sql = "UPDATE $tabela[3] SET $customSets WHERE id_pessoa = ?";
+			$stmt = $conn->prepare("SHOW COLUMNS FROM $tabela[3]");  
+                $stmt->execute();
+			
+                while($e = $stmt->fetch()){
+                 $colunas[] = $e['Field']; //pega os nomes da colunas
+				}
+				
+			 $sql = "UPDATE $tabela[3] SET $customSets WHERE $columas[0] = ?";
 			 
 		try {
 

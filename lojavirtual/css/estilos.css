@@ -1,0 +1,78 @@
+<style type="text/css">
+body { padding: 15px; background:#eee; font-family: Arial, Helvetica, sans-serif }.
+
+#prod {
+	border: solid 1px #666;	
+	padding: 5px 10px;
+	margin: 40px;
+}
+
+
+/* max-width  */
+@media screen and (max-width: 600px) {
+	#prod {
+		background: #ccc;
+	}
+}
+
+/* min-width */
+@media screen and (min-width: 300px) {
+	#prod {
+		background: #ccc;
+		width: 500px;
+	}
+	#prod input {
+		width: 200px;
+		display: block;
+		padding: 2px 6px 5px 8px;
+		margin: 10px 0px 9px 153px;
+	}
+	#prod label {
+		float : left;
+		position: absolute;
+	}
+}
+
+/* min-width & max-width */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+	#prod {
+		background: #ccc;
+	}
+}
+
+/* max device width */
+@media screen and (max-device-width: 480px) {
+	#prod {
+
+		  background: #cff;
+		  width: 500px;
+		  font-size : 47px;
+	}
+	#prod input {
+		  width: 200px;
+		  display: block;
+		  padding: 2px 6px 5px 8px;
+		  margin: 29px 22px 43px 441px;
+	}
+	#prod label {
+		float : left;
+		position: absolute;
+	}
+}
+@media screen and (min-device-width: 1980px) {
+	#prod {
+		background: #ccc;
+		width : 400px;
+	}
+	#prod input {
+		width: 200px;
+        display: block;
+        padding: 2px 6px 5px 8px;
+        margin: 5px 10px 4px 178px;
+	}
+	#prod label {
+		float : left;
+		position: absolute;
+	}
+}
+</style>
