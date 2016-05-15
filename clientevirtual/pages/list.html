@@ -1,0 +1,28 @@
+<h2>Pessoas</h2>
+<div ng-controller="PessoaListControler">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>NOME</th>
+        <th>RG</th>
+        <th>CPF/CNPJ</th>
+        <th>SEXO</th>
+        <th>TELEFONE RES</th>
+		<th>TELEFONE CEL</th>
+        <th>Option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="res in pessoas | orderBy: 'First_Name'">
+        <td>{{pessoas[$index].NOME}}</td>
+        <td>{{pessoas[$index].NUMERO_RG}}</td>
+        <td>{{pessoas[$index].CPF_CNPJ}}</td>
+        <td>{{pessoas[$index].SEXO}}</td>
+        <td>{{pessoas[$index].TELEFONE_RESIDENCIAL}}</td>
+		<td>{{pessoas[$index].TELEFONE_CELULAR}}</td>
+        <td><a href="#/Atualizar/{{pessoas.pessoa_endereco_ID_PESSOA_ENDERECO}}" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-pencil"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-primary" href="#/Novo">Nova Pessoa</a>
+</div>
