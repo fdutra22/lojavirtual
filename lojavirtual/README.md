@@ -1,4 +1,4 @@
-Para usar basta copiar a pasta lojavirtual para a para web root do seu servidor. (Aplicação 1 servidor).
+Para usar basta copiar a pasta lojavirtual para a para web root do seu servidor. (Aplicação 1 servidor) e salvar o .htaccess.txt como .htaccess. Configurar tbm o arquivo dbconfig.php para o seu banco de dados entrando com a senha o nome do banco, usuario e host.
 
 Para realizar a busca (METHOD GET) deve-se utilizar por exemplo: http://localhost/lojavirtual/pessoas/pessoa para uma busca por todos os registros ou http://localhost/lojavirtual/pessoas/pessoa/1 para buscar por id e ainda http://localhost/lojavirtual/pessoas/pessoa/pedro para buscar por nome.
 
