@@ -39,7 +39,8 @@
 			
 		   $('#enviar').click(function(){
 			   var str = $("#lista").val();
-			   
+			   $("#prod > table > thead > tr").empty();
+			   $("#prod > table > tbody").empty();
 			   $.ajax({
 						url: "http://localhost/lojavirtual/tabelas/"+str,
 						dataType: 'json',
@@ -60,20 +61,20 @@
 						
 
 				}).done(function(data) {
-					$.each(data, function(i, item) {
-					$.each(data, function(x, itemw) {
-					alert(itemw);
-					});
-					});
-
-alert(data[0][1].length - 1);
-						for (i = 0; i <= data.length - 1; i++){
-							$("#prod > table > tbody").append('<tr>');
-							for (x = 0; x <= data[i][1].length - 1; x++){
-				$("#prod > table > tbody > tr").append('<td> '+data[i][x]+ ' </td>')
-							}
-							$("#prod > table > tbody").append('</tr>');
+					linha = 0;
+					 for ( var i in data){
+					 linha++;
+						$("#prod > table > tbody").append('<tr id='+linha+'>');
+						for (var j in data[i]) {
+							
+							$('#prod > table > tbody  #'+linha+'').append('<td> '+data[i][j]+ ' </td>');
+							
 						}
+						$("#prod > table > tbody").append('</tr>');
+					}
+						
+					
+						
 				});
 			})
 		

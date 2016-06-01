@@ -1,5 +1,6 @@
 <?php
 	namespace App\Mvc;
+	use PDO;
 	
  
    class Model
@@ -35,6 +36,8 @@
 			$sql = "select * from $tabela[3]";
 			$stmt = $conn->prepare($sql); 
 			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+
 			$users = $stmt->fetchAll();
 			}
 		   	
